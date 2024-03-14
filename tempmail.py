@@ -18,10 +18,10 @@ def get_random_email():
             email = data[0]
             return email
         else:
-            print("Неверный формат ответа от API.")
+            print("Incorrect response format from API.")
             return None
     else:
-        print(f"Ошибка при выполнении запроса. Код состояния: {response.status_code}")
+        print(f"Error executing request. Status code: {response.status_code}")
         return None
 
 def get_messages(email):
@@ -40,9 +40,9 @@ def get_messages(email):
                     print("Тема: ", message["subject"])
                     read_message(login, domain, str(message["id"]))
             else:
-                print("Почтовый ящик пуст. " + "Ваша почта: " + email)
+                print("Mailbox is empty. " + "Your email: " + email)
         else:
-            print(f"Ошибка при выполнении запроса. Код состояния: {response.status_code}")
+            print(f"Error executing request. Status code: {response.status_code}")
 
 
 #https://t.me/andrdevvv
@@ -79,14 +79,14 @@ def read_message(login, domain, message_id):
         print("----------")
         print("----------")
     else:
-        print(f"Ошибка при выполнении запроса для чтения сообщения. Код состояния: {response.status_code}")
+        print(f"Error executing request to read message. Status code: {response.status_code}")
 
 random_email = get_random_email()
 if random_email:
-    print(f"Случайный адрес электронной почты: {random_email}")
+    print(f"Random email address: {random_email}")
     get_messages(random_email)
 else:
-    print("Не удалось получить случайный адрес электронной почты.")
+    print("Failed to get random email address.")
 
 
 #https://t.me/andrdevvv
